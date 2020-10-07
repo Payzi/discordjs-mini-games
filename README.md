@@ -15,20 +15,21 @@ $ npm install discord-mini-games
 # Использование (Node.js)
 
 ```js
-const payzi_time = require('payzi-time');
-payzi_time(123456789);
-/*
-{
-   days: 1,
-   hours: 10,
-   minutes: 17,
-   seconds: 36,
-   milliseconds: 789 
-}
-*/
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on("message", async (message) => {
+    if(message.content === 'p.game'){
+
+       require('discord-mini-games')(client, message, 'название игры') //Заместо "название-игры" надо указать любую игру на выбор | Доступные игры: snake
+
+    }
+})
+
+client.login('токен-вашего-дискорд-бота');
 ```
 
 # Проекты
 
 - [PayziBot](https://discord.com/api/oauth2/authorize?client_id=576442351426207744&permissions=8&scope=bot)
-- [GitHub payzi-time](https://github.com/Payzi/payzi-time/)
+- [GitHub discord-mini-games](https://github.com/Payzi/discord-mini-games/)
