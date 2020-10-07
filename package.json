@@ -1,0 +1,29 @@
+{
+  "name": "discord-mini-games",
+  "version": "0.0.1",
+  "description": "Пакет для мини-игр прямо в дискорде!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Payzi/discord-mini-games.git"
+  },
+  "keywords": [
+    "games",
+    "discord",
+    "discord-games",
+    "discord-reactions",
+    "mini-games"
+  ],
+  "author": "Payz_2020",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Payzi/discord-mini-games/issues"
+  },
+  "homepage": "https://github.com/Payzi/discord-mini-games#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
