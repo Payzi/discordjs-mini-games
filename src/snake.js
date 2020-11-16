@@ -9,7 +9,7 @@ class SnakeGame {
     constructor() {
         this.snake = [{ x: 5, y: 5 }];
         this.snakeLength = 1;
-        this.score = 0;
+        this.score = 1;
         this.gameEmbed = null;
         this.inGame = false;
         for (let y = 0; y < HEIGHT; y++) {
@@ -63,7 +63,7 @@ class SnakeGame {
             return;
 
         this.inGame = true;
-        this.score = 0;
+        this.score = 1;
         this.snakeLength = 1;
         this.snake = [{ x: 5, y: 5 }];
         this.newAppleLoc();
@@ -78,6 +78,7 @@ class SnakeGame {
             this.gameEmbed.react('⬆️');
             this.gameEmbed.react('⬇️');
             this.gameEmbed.react('➡️');
+            this.gameEmbed.react('❌');
 
             this.waitForReaction();
         });
@@ -88,6 +89,12 @@ class SnakeGame {
             this.score += 1;
             this.snakeLength++;
             this.newAppleLoc();
+            
+            for (let s = 0; s < this.snake.length; s++) {
+                if (apple.x == this.snake[s].x && apple.y == this.snake[s].y) {
+                    this.newAppleLoc();
+                }
+            }
         }
 
         const editEmbed = new Discord.MessageEmbed()
@@ -136,13 +143,11 @@ class SnakeGame {
                 else if (reaction.emoji.name === '⬇️') {
                     let nextY = snakeHead.y + 1;
                     if (nextY >= HEIGHT)
-                        nextY = 0;
                     nextPos.y = nextY;
                 }
                 else if (reaction.emoji.name === '➡️') {
                     let nextX = snakeHead.x + 1;
                     if (nextX >= WIDTH)
-                        nextX = 0;
                     nextPos.x = nextX;
                 }
 
